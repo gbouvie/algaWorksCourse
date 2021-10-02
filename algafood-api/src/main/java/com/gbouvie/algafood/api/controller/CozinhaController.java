@@ -38,7 +38,7 @@ public class CozinhaController {
 	}
 	
 	@GetMapping("/{cozinhaId}")
-	public ResponseEntity<Cozinha> Buscar(@PathVariable Long cozinhaId) {
+	public ResponseEntity<Cozinha> buscar(@PathVariable Long cozinhaId) {
 		Cozinha cozinha = cozinhaRepository.buscar(cozinhaId);
 		
 		if (cozinha != null) {
