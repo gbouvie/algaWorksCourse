@@ -7,10 +7,10 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
 
 import com.gbouvie.algafood.AlgafoodApiApplication;
-import com.gbouvie.algafood.domain.model.Cozinha;
-import com.gbouvie.algafood.domain.repository.CozinhaRepository;
+import com.gbouvie.algafood.domain.model.Restaurante;
+import com.gbouvie.algafood.domain.repository.RestauranteRepository;
 
-public class ConsultaCozinhaMain {
+public class ConsultaRestauranteMain {
 	
 	public static void main(String[] args) {
 		
@@ -18,12 +18,12 @@ public class ConsultaCozinhaMain {
 				.web(WebApplicationType.NONE)
 				.run(args);
 		
-		CozinhaRepository cozinhas = applicationContext.getBean(CozinhaRepository.class);
+		RestauranteRepository restaurantes = applicationContext.getBean(RestauranteRepository.class);
 		
-		List<Cozinha> todasCozinhas = cozinhas.listar();
+		List<Restaurante> todosRestaurantes = restaurantes.listar();
 		
-		for (Cozinha cozinha : todasCozinhas) {
-			System.out.println(cozinha.getNome());
+		for (Restaurante restaurante : todosRestaurantes) {
+			System.out.println(restaurante.getNome());
 		}
 	}
 	
