@@ -1,4 +1,4 @@
-package com.gbouvie.algafood.api.contrller;
+package com.gbouvie.algafood.api.controller;
 
 import java.util.List;
 
