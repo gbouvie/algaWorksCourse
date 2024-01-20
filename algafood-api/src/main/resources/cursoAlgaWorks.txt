@@ -1,3 +1,4 @@
+4.20 Manipulando a resposta HTTP com ResponseEntity
 4.19 Definindo o status da resposta HTTP com @ResponseStatus
 4.18 Conhecendo os códigos de status HTTP
 		Registro oficial IANA de códigos de status HTTP - https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml
