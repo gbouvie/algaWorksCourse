@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.gbouvie.algafood.api.model.CozinhasXmlWrapper;
 import com.gbouvie.algafood.domain.model.Cozinha;
 import com.gbouvie.algafood.domain.repository.CozinhaRepository;
+import com.gbouvie.algafood.domain.service.CadastroCozinhaService;
 
 @RestController
 @RequestMapping(value = "/cozinhas")
@@ -28,6 +29,9 @@ public class CozinhaController {
 
 	@Autowired
 	private CozinhaRepository cozinhaRepository;
+	
+	@Autowired
+	private CadastroCozinhaService cadastroCozinha;
 	
 	@GetMapping
 	public List<Cozinha> listar() {
@@ -53,23 +57,23 @@ public class CozinhaController {
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public Cozinha adicionar(@RequestBody Cozinha cozinha) {
-		return cozinhaRepository.salvar(cozinha);
+		return cadastroCozinha.salvar(cozinha);
 	}
 	
 	@PutMapping("/{cozinhaId}")
 	public ResponseEntity<Cozinha> atualizar(@PathVariable Long cozinhaId, @RequestBody Cozinha cozinha) {
 		Cozinha cozinhaAtual = cozinhaRepository.buscar(cozinhaId);
-		
+
 		if (cozinhaAtual != null) {
 
 	//		cozinhaAtual.setNome(cozinha.getNome());
 			BeanUtils.copyProperties(cozinha, cozinhaAtual, "id");
-			
+
 			cozinhaRepository.salvar(cozinhaAtual);
-			
+
 			return ResponseEntity.ok(cozinhaAtual);
 		}
-		
+
 		return ResponseEntity.notFound().build();
 	}
 	
