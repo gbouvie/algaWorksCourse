@@ -1,3 +1,4 @@
+4.39 Conhecendo o nível 3 do RMM (HATEOAS)
 4.38 Conhecendo o nível 2 do RMM
 4.37 Conhecendo o nível 1 do RMM
 4.36 Conhecendo o nível 0 do RMM
